@@ -31,18 +31,22 @@
             background: none;
             cursor: pointer;
         }
-        .hidden {
-            display: none;
-        }
     </style>
     <script>
+        let secondVideo = null;
         function toggleEmbed() {
-            var embed = document.getElementById("secondVideo");
-            if (embed.classList.contains("hidden")) {
-                embed.classList.remove("hidden");
-            } else {
-                embed.classList.add("hidden");
+            if (!secondVideo) {
+                secondVideo = document.createElement("iframe");
+                secondVideo.src = "https://www.youtube.com/embed/IjhopLFtu38?autoplay=1";
+                secondVideo.allowFullscreen = true;
+                secondVideo.style.position = "absolute";
+                secondVideo.style.width = "100%";
+                secondVideo.style.height = "100%";
+                secondVideo.style.border = "none";
+                secondVideo.style.display = "none";
+                document.body.appendChild(secondVideo);
             }
+            secondVideo.style.display = secondVideo.style.display === "none" ? "block" : "none";
         }
     </script>
 </head>
@@ -50,7 +54,6 @@
     <div class="container">
         <iframe src="https://www.youtube.com/embed/XaoigWHOtBM?autoplay=1&controls=0&showinfo=0&modestbranding=1&rel=0" allowfullscreen></iframe>
         <div class="play-button" onclick="toggleEmbed()"></div>
-        <iframe id="secondVideo" class="hidden" src="https://www.youtube.com/embed/IjhopLFtu38?autoplay=1" allowfullscreen></iframe>
     </div>
 </body>
 </html>

@@ -1,1 +1,42 @@
-<iframe width="560" height="315" src="https://www.youtube.com/embed/XaoigWHOtBM?si=2EsLX3Fbep1GLls_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fullscreen Video with Play Button</title>
+    <style>
+        * { margin: 0; padding: 0; overflow: hidden; }
+        html, body { height: 100%; width: 100%; }
+        .container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+        iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            border-left: 40px solid white;
+            border-top: 25px solid transparent;
+            border-bottom: 25px solid transparent;
+            background: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <iframe src="https://www.youtube.com/embed/XaoigWHOtBM?autoplay=1&controls=0&showinfo=0&modestbranding=1&rel=0" allowfullscreen></iframe>
+        <div class="play-button" onclick="window.open('https://www.youtube.com/watch?v=IjhopLFtu38', '_blank')"></div>
+    </div>
+</body>
+</html>

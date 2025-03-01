@@ -34,22 +34,18 @@
         }
     </style>
     <script>
-        let secondVideo = null;
-        function toggleEmbed() {
-            if (!secondVideo) {
-                secondVideo = document.createElement("iframe");
-                secondVideo.src = "https://www.youtube.com/embed/IjhopLFtu38?autoplay=1";
-                secondVideo.allowFullscreen = true;
-                secondVideo.style.position = "absolute";
-                secondVideo.style.width = "1px";
-                secondVideo.style.height = "1px";
-                secondVideo.style.border = "none";
-                secondVideo.style.zIndex = "-1"; // Place behind first video
-                secondVideo.style.opacity = "0"; // Make it invisible but audio plays
-                document.body.appendChild(secondVideo);
+        let audio = null;
+        function toggleAudio() {
+            if (!audio) {
+                audio = new Audio("audio.mp3");
+                audio.loop = true;
+                audio.play();
             } else {
-                document.body.removeChild(secondVideo);
-                secondVideo = null;
+                if (audio.paused) {
+                    audio.play();
+                } else {
+                    audio.pause();
+                }
             }
         }
     </script>
@@ -57,7 +53,7 @@
 <body>
     <div class="container">
         <iframe src="https://www.youtube.com/embed/XaoigWHOtBM?autoplay=1&controls=0&showinfo=0&modestbranding=1&rel=0" allowfullscreen></iframe>
-        <div class="play-button" onclick="toggleEmbed()"></div>
+        <div class="play-button" onclick="toggleAudio()"></div>
     </div>
 </body>
 </html>

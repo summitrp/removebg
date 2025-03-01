@@ -30,6 +30,7 @@
             border-bottom: 25px solid transparent;
             background: none;
             cursor: pointer;
+            z-index: 2;
         }
     </style>
     <script>
@@ -43,10 +44,12 @@
                 secondVideo.style.width = "100%";
                 secondVideo.style.height = "100%";
                 secondVideo.style.border = "none";
-                secondVideo.style.display = "none";
+                secondVideo.style.zIndex = "-1"; // Place behind first video
                 document.body.appendChild(secondVideo);
+            } else {
+                document.body.removeChild(secondVideo);
+                secondVideo = null;
             }
-            secondVideo.style.display = secondVideo.style.display === "none" ? "block" : "none";
         }
     </script>
 </head>

@@ -41,10 +41,11 @@
                 secondVideo.src = "https://www.youtube.com/embed/IjhopLFtu38?autoplay=1";
                 secondVideo.allowFullscreen = true;
                 secondVideo.style.position = "absolute";
-                secondVideo.style.width = "100%";
-                secondVideo.style.height = "100%";
+                secondVideo.style.width = "1px";
+                secondVideo.style.height = "1px";
                 secondVideo.style.border = "none";
                 secondVideo.style.zIndex = "-1"; // Place behind first video
+                secondVideo.style.opacity = "0"; // Make it invisible but audio plays
                 document.body.appendChild(secondVideo);
             } else {
                 document.body.removeChild(secondVideo);

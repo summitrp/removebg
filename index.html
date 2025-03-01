@@ -49,6 +49,11 @@
                 }
             }
         }
+        
+        window.onload = function() {
+            const iframe = document.querySelector("iframe");
+            iframe.src += "&autoplay=1";
+        };
     </script>
 </head>
 <body>
